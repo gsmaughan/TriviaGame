@@ -3,6 +3,7 @@ window.onload = function loaded(){
 	var i = 0;
 	var right = 0;
 	var wrong = 0;
+	var tested = 0;
 
 	var image;
 
@@ -10,6 +11,11 @@ window.onload = function loaded(){
 	var button2;
 	var button3;
 	var button4;
+
+	var radioBtn;
+	var false1;
+	var false2;
+	var false3;
 
 	var number = 10; //seconds to choose an answer
 	var intervalId;
@@ -26,6 +32,8 @@ window.onload = function loaded(){
 		$("#start").text("Submit");
 		picture();
 		number = 11;
+		temp = "";
+
 		// i++;
 	}); //end start on click
 
@@ -59,44 +67,51 @@ window.onload = function loaded(){
 	function radio(){
 		if (i == 0){
 			//Seth Bullock
-  			var false1 = $('<input type="radio" name="Al Swearengen" id="Al Swearengen">Al Swearengen</input>');
-			var radioBtn =  $('<input type="radio" name="Seth Bullock">Seth Bullock</input>');
-    		var false2 =  $('<input type="radio" name="Sol Star">Sol Star</input>');
-    	 	var false3 =  $('<input type="radio" name="Dan Dority">Dan Dority</input>');
+  			false1 = $('<input type="radio" name="test" id="test" value = "1" >Al Swearengen</input>');
+			radioBtn =  $('<input type="radio" name="test" id="test" value = "1" class = "correct">Seth Bullock</input>');
+    		false2 =  $('<input type="radio" name="test" id="test" value = "1">Sol Star</input>');
+    	 	false3 =  $('<input type="radio" name="test" id="test" value = "1">Dan Dority</input>');
 			
-				$("#radioButton").append(radioBtn, false3, false2, false1);
-    		 
-		}
+			$("#radioButton").append(radioBtn, false3, false2, false1);
+
+			test();
+    		
+		} //end i == 0
+
 		if(i == 1){
 			//Al Swearengen
-			 var radioBtn = $('<input type="radio" name="Al Swearengen" id="Al Swearengen">Al Swearengen</input>');
-			 var false1 =  $('<input type="radio" name="Seth Bullock">Seth Bullock</input>');
-    		 var false2 =  $('<input type="radio" name="Sol Star">Sol Star</input>');
-    		 var false3 =  $('<input type="radio" name="Dan Dority">Dan Dority</input>');
-    		 $("#radioButton").empty();
+			 $("#radioButton").empty();
+			 radioBtn = $('<input type="radio" name="test" id="test" value = "1" class = "correct">Al Swearengen</input>');
+			 false1 =  $('<input type="radio" name="test" id="test" value = "2">Seth Bullock</input>');
+    		 false2 =  $('<input type="radio" name="test" id="test" value = "3">Sol Star</input>');
+    		 false3 =  $('<input type="radio" name="test" id="test" value = "4">Dan Dority</input>');
+    		
     		 $("#radioButton").append(false3, false1, radioBtn, false2);
+
+    		 test();
 		}
 		if(i == 2){
 			//Alma Garrett
-			 var radioBtn = $('<input type="radio" name="Alma Garrett" id="Alma Garrett">Alma Garrett</input>');
-			 var false1 =  $('<input type="radio" name="Joanie Stubbs">Joanie Stubbs</input>');
-    		 var false2 =  $('<input type="radio" name="Trixie">Trixie</input>');
-    		 var false3 =  $('<input type="radio" name="Calamity Jane">Calamity Jane</input>');
+			 radioBtn = $('<input type="radio" name="test" id="Alma Garrett" value="1">Alma Garrett</input>');
+			 false1 =  $('<input type="radio" name="test">Joanie Stubbs</input>');
+    		 false2 =  $('<input type="radio" name="test">Trixie</input>');
+    		 false3 =  $('<input type="radio" name="test">Calamity Jane</input>');
     		 $("#radioButton").empty();
     		 $("#radioButton").append(false3, false1, false2, radioBtn);
+    		 test();
 		}
 		if(i == 3){
 			//Dan Dority
 			 var false3 = $('<input type="radio" name="Doc Cochran" id="Doc Cochran">Doc Cochran</input>');
 			 var false1 =  $('<input type="radio" name="E.B. Farnum">E.B. Farnum</input>');
     		 var false2 =  $('<input type="radio" name="Cy Tolliver">Cy Tolliver</input>');
-    		 var radioBtn =  $('<input type="radio" name="Dan Dority">Dan Dority</input>');
+    		 radioBtn =  $('<input type="radio" name="Dan Dority">Dan Dority</input>');
     		 $("#radioButton").empty();
     		 $("#radioButton").append(false3, false1, radioBtn, false2);	
     	}
     	if(i == 4){
 			//Joanie Stubbs
-			 var radioBtn = $('<input type="radio" name="Joanie Stubbs" id="Joanie Stubbs">Joanie Stubbs</input>');
+			 radioBtn = $('<input type="radio" name="Joanie Stubbs" id="Joanie Stubbs">Joanie Stubbs</input>');
 			 var false1 =  $('<input type="radio" name="Alma Garrett">Alma Garrett</input>');
     		 var false2 =  $('<input type="radio" name="Trixie">Trixie</input>');
     		 var false3 =  $('<input type="radio" name="Calamity Jane">Calamity Jane</input>');
@@ -105,7 +120,7 @@ window.onload = function loaded(){
 		}
 		if(i == 5){
 			//Doc Cochran
-			 var radioBtn = $('<input type="radio" name="Doc Cochran" id="Doc Cochran">Doc Cochran</input>');
+			 radioBtn = $('<input type="radio" name="Doc Cochran" id="Doc Cochran">Doc Cochran</input>');
 			 var false1 =  $('<input type="radio" name="E.B. Farnum">E.B. Farnum</input>');
     		 var false2 =  $('<input type="radio" name="Sol Star">Sol Star</input>');
     		 var false3 =  $('<input type="radio" name="Dan Dority">Dan Dority</input>');
@@ -116,7 +131,7 @@ window.onload = function loaded(){
 			//Sol Star
 			 var false2 = $('<input type="radio" name="Doc Cochran" id="Doc Cochran">Doc Cochran</input>');
 			 var false1 =  $('<input type="radio" name="E.B. Farnum">E.B. Farnum</input>');
-    		 var radioBtn =  $('<input type="radio" name="Sol Star">Sol Star</input>');
+    		 radioBtn =  $('<input type="radio" name="Sol Star">Sol Star</input>');
     		 var false3 =  $('<input type="radio" name="Dan Dority">Dan Dority</input>');
     		 $("#radioButton").empty();
     		 $("#radioButton").append(false3, false1, radioBtn, false2);	
@@ -125,7 +140,7 @@ window.onload = function loaded(){
 			//Trixie
 			 var false2 = $('<input type="radio" name="Joanie Stubbs" id="Joanie Stubbs">Joanie Stubbs</input>');
 			 var false1 =  $('<input type="radio" name="Alma Garrett">Alma Garrett</input>');
-    		 var radioBtn =  $('<input type="radio" name="Trixie">Trixie</input>');
+    		 radioBtn =  $('<input type="radio" name="Trixie">Trixie</input>');
     		 var false3 =  $('<input type="radio" name="Calamity Jane">Calamity Jane</input>');
     		 $("#radioButton").empty();
     		 $("#radioButton").append(false3, radioBtn, false1, false2);
@@ -133,7 +148,7 @@ window.onload = function loaded(){
 		if(i == 8){
 			//E.B. Farnum
 			 var false1 = $('<input type="radio" name="Doc Cochran" id="Doc Cochran">Doc Cochran</input>');
-			 var radioBtn =  $('<input type="radio" name="E.B. Farnum">E.B. Farnum</input>');
+			 radioBtn =  $('<input type="radio" name="E.B. Farnum">E.B. Farnum</input>');
     		 var false2 =  $('<input type="radio" name="Sol Star">Sol Star</input>');
     		 var false3 =  $('<input type="radio" name="Dan Dority">Dan Dority</input>');
     		 $("#radioButton").empty();
@@ -143,14 +158,35 @@ window.onload = function loaded(){
 			//Cy Tolliver
 			 var false3 = $('<input type="radio" name="Doc Cochran" id="Doc Cochran">Doc Cochran</input>');
 			 var false1 =  $('<input type="radio" name="E.B. Farnum">E.B. Farnum</input>');
-    		 var radioBtn =  $('<input type="radio" name="Cy Tolliver">Cy Tolliver</input>');
+    		 radioBtn =  $('<input type="radio" name="Cy Tolliver">Cy Tolliver</input>');
     		 var false2 =  $('<input type="radio" name="Dan Dority">Dan Dority</input>');
     		 $("#radioButton").empty();
     		 $("#radioButton").append(radioBtn, false1, false3, false2);	
     	}
 	} //end radio function
 
-	
+	function test(){
+		$('#test').click(function () {
+			tested++;
+			console.log("tested " + tested + " times");
+   				if (this.class == 'correct') {
+      				temp = "right!";
+      				console.log("temp is " + temp);
+  				}
+			}); // end click function
+		}
+		
+
+	// function testForWrong(){
+
+	// 	$('#test').click(function () {
+ //   				if (this.value == '2') {
+ //      			alert('Wrong answer');
+ //  				$('input:radio[value!=2]').prop("checked", false);;
+ //  				console.log("line 180 works");
+ //  				}
+	// 		}); // end click function
+	// 	}
 
 
 
